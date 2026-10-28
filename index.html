@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>3B Irigem - Chat</title>
+  
+  <meta name="description" content="Chat 3B Irigem">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-wrapper">
+    <!-- Header -->
+    <header class="chat-header">
+      <div class="header-brand">
+        <svg class="icon icon-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="chat-title">3B Irigem</span>
+      </div>
+
+      <div class="header-actions">
+        <!-- Menu Siti -->
+        <div class="dropdown" id="sitesDropdown">
+          <button type="button" class="btn-link dropdown-toggle" id="sitesBtn">
+            <span>Siti</span>
+            <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="dropdown-content" id="sitesMenu">
+            <a href="https://finerigem.it" target="_blank" rel="noopener noreferrer">
+              <span>finerigem.it</span>
+              <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+            <a href="https://report.davitek.it" target="_blank" rel="noopener noreferrer">
+              <span>report.davitek.it</span>
+              <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Cambio Utente -->
+        <button type="button" class="user-pill" id="changeUserBtn" title="Cambia nome">
+          <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span id="currentUserName">...</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Area Messaggi -->
+    <main class="chat-area" id="chatArea">
+      <div class="messages" id="messagesList"></div>
+    </main>
+
+    <!-- Barra Input -->
+    <footer class="chat-bar">
+      <form id="chatForm" class="message-form" autocomplete="off">
+        <input type="text" name="bot_trap" id="botTrap" style="display:none;" tabindex="-1">
+        <input 
+          type="text" 
+          id="messageInput" 
+          class="text-input" 
+          placeholder="Scrivi un messaggio..." 
+          maxlength="800" 
+          autocomplete="off">
+        <button type="submit" class="btn-send" id="sendBtn" title="Invia">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </footer>
+  </div>
+
+  <!-- Modal Selezione Nome -->
+  <div class="modal-overlay" id="userModal">
+    <div class="modal-box">
+      <div class="modal-icon">
+        <svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+      <h3>Scegli nome utente</h3>
+      <form id="userForm">
+        <input 
+          type="text" 
+          id="userInput" 
+          class="modal-input" 
+          placeholder="Nome utente" 
+          required 
+          minlength="2" 
+          maxlength="24" 
+          autocomplete="off">
+        <div class="modal-error hide" id="userError"></div>
+        <button type="submit" class="btn-primary">Entra</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Contact: mailto:calina.ti.1011@irigemscuole.it
+Expires: 2028-12-31T23:59:59.000Z
+Preferred-Languages: it, en
+Policy: https://github.com/calinaboss/chat3b
+Acknowledgments: https://github.com/calinaboss/chat3b
+Canonical: https://chat3b.pages.dev/.well-known/security.txt
